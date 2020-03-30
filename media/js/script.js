@@ -65,12 +65,12 @@ function dataSetFromSuggestion(data, prefix) {
 		val(data['postal_code'] ? data['postal_code'] : '');
 	jQuery('[name="' + prefix + 'state"]').
 		val(data['region_with_type'] ? data['region_with_type'] : '');
-	if(!!data['city_with_type']){
+	if(!!data['city']){
 		jQuery('[name="' + prefix + 'city"]').
-			val(data['city_with_type'] ? data['city_with_type'] : '');
+			val(data['city'] ? data['city'] : '');
 	} else {
 		jQuery('[name="' + prefix + 'city"]').
-			val(data['settlement_with_type'] ? data['settlement_with_type'] : '');
+			val(data['settlement'] ? data['settlement'] : '');
 	}
 	jQuery('[name="' + prefix + 'street"]').
 		val(data['street_with_type'] ? data['street_with_type'] : '');

@@ -22,6 +22,8 @@
     <files>
         <filename plugin="dadata_suggestions">dadata_suggestions.php</filename>
         <folder>language</folder>
+        <folder>fields</folder>
+        <folder>tmpl</folder>
     </files>
 
     <media destination="plg_jshopping_dadata_suggestions" folder="media">
