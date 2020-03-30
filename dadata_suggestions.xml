@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.8" group="jshopping" method="upgrade">
+    <name>PLG_JSHOPPING_DADATA_SUGGESTIONS</name>
+    <creationDate>30.03.2020</creationDate>
+    <author>Webmasterskaya</author>
+    <copyright>Copyright (C) 2020 Webmasterskaya. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+    <authorEmail>dev@webmasterskaya.xyz</authorEmail>
+    <authorUrl>https://webmasterskaya.xyz</authorUrl>
+    <version>__DEPLOY_VERSION__</version>
+    <description>PLG_JSHOPPING_DADATA_SUGGESTIONS_XML_DESCRIPTION</description>
+
+    <!-- Language files -->
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_jshopping_dadata_suggestions.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_jshopping_dadata_suggestions.sys.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_jshopping_dadata_suggestions.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_jshopping_dadata_suggestions.sys.ini</language>
+    </languages>
+
+    <!-- Plugin files -->
+    <files>
+        <filename plugin="dadata_suggestions">dadata_suggestions.php</filename>
+        <folder>language</folder>
+    </files>
+
+    <media destination="plg_jshopping_dadata_suggestions" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+
+    <!-- Config parameter -->
+    <config>
+        <fields name="params" addfieldpath="/plugins/jshopping/dadata_suggestions/fields">
+            <fieldset name="basic">
+                <field
+                        name="dadata_api_key"
+                        required="true"
+                        type="text"
+                        default=""
+                        label="PLG_JSHOPPING_DADATA_SUGGESTIONS_API_KEY"
+                        description="PLG_JSHOPPING_DADATA_SUGGESTIONS_API_KEY_DESCRIPTION"
+                />
+            </fieldset>
+            <fieldset name="checkout" label="PLG_JSHOPPING_DADATA_SUGGESTIONS_CHECKOUT">
+                <field
+                        name="dadata_checkout_enabled"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="PLG_JSHOPPING_DADATA_SUGGESTIONS_CHECKOUT_ENABLED"
+                        description="PLG_JSHOPPING_DADATA_SUGGESTIONS_CHECKOUT_ENABLED_DESCRIPTION">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="dadata_checkout_use_address_field"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="2"
+                        label="PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_ADDRESS_FIELD"
+                        description="PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_ADDRESS_FIELD_DESCRIPTION"
+                        showon="dadata_checkout_enabled:1">
+                    <option value="1">PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_ADDRESS_FIELD_VALUE_1</option>
+                    <option value="2">PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_ADDRESS_FIELD_VALUE_2</option>
+                    <option value="0">PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_ADDRESS_FIELD_VALUE_0</option>
+                </field>
+                <field
+                        name="dadata_checkout_address_field"
+                        type="jsfields"
+                        fieldfilter="display:1"
+                        groupfilter="address"
+                        default=""
+                        label="PLG_JSHOPPING_DADATA_SUGGESTIONS_ADDRESS_FIELD"
+                        description="PLG_JSHOPPING_DADATA_SUGGESTIONS_ADDRESS_FIELD_DESCRIPTION"
+                        showon="dadata_checkout_enabled:1[AND]dadata_checkout_use_address_field:2">
+                </field>
+				<field
+						name="dadata_checkout_hide_default"
+						type="radio"
+						class="btn-group btn-group-yesno"
+						default="1"
+						label="PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT"
+						description="PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_DESCRIPTION"
+						showon="dadata_checkout_enabled:1[AND]dadata_checkout_use_address_field!:0">
+                    <option value="1">PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_VALUE_1</option>
+                    <option value="2">PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_VALUE_2</option>
+                    <option value="0">PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_VALUE_0</option>
+				</field>
+            </fieldset>
+        </fields>
+    </config>
+
+    <!-- Update servers -->
+    <updateservers>
+        <server type="extension" priority="1" name="jshopping-dadata-suggestions">
+            https://www.example.com/plg_jshopping_dadata_suggestions.xml
+        </server>
+    </updateservers>
+</extension>
