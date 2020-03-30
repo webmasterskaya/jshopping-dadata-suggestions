@@ -1,0 +1,26 @@
+{
+  "name": "jshopping-dadata-suggestions",
+  "version": "1.0.0",
+  "description": "JoomShopping - Интеграция с сервисом подсказок DaData",
+  "scripts": {
+    "copy:css": "cpy node_modules/suggestions-jquery/dist/css/* media/css",
+    "copy:js": "cpy node_modules/suggestions-jquery/dist/js/* media/js ",
+    "copy": "npm run copy:css && npm run copy:js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webmasterskaya/jshopping-dadata-suggestions.git"
+  },
+  "author": "Webmasterskaya",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/webmasterskaya/jshopping-dadata-suggestions/issues"
+  },
+  "homepage": "https://github.com/webmasterskaya/jshopping-dadata-suggestions#readme",
+  "dependencies": {
+    "suggestions-jquery": "^20.3.0"
+  },
+  "devDependencies": {
+    "cpy-cli": "^3.1.0"
+  }
+}

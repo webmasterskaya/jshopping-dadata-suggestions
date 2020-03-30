@@ -1,3 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 *.zip
+media/css/
+media/js/jquery.suggestions.js
+media/js/jquery.suggestions.min.js
+node_modules/
+package-lock.json
+package.json
+
+!media/js/script.js
