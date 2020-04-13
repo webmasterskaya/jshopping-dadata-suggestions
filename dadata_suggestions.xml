@@ -23,7 +23,6 @@
         <filename plugin="dadata_suggestions">dadata_suggestions.php</filename>
         <folder>language</folder>
         <folder>fields</folder>
-        <folder>tmpl</folder>
     </files>
 
     <media destination="plg_jshopping_dadata_suggestions" folder="media">
@@ -59,23 +58,22 @@
                         name="dadata_checkout_use_address_field"
                         type="radio"
                         class="btn-group btn-group-yesno"
-                        default="2"
+                        default="1"
                         label="PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_ADDRESS_FIELD"
                         description="PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_ADDRESS_FIELD_DESCRIPTION"
                         showon="dadata_checkout_enabled:1">
-                    <option value="1">PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_ADDRESS_FIELD_VALUE_1</option>
-                    <option value="2">PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_ADDRESS_FIELD_VALUE_2</option>
-                    <option value="0">PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_ADDRESS_FIELD_VALUE_0</option>
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
                 </field>
                 <field
                         name="dadata_checkout_address_field"
                         type="jsfields"
                         fieldfilter="display:1"
                         groupfilter="address"
-                        default=""
+                        default="0"
                         label="PLG_JSHOPPING_DADATA_SUGGESTIONS_ADDRESS_FIELD"
                         description="PLG_JSHOPPING_DADATA_SUGGESTIONS_ADDRESS_FIELD_DESCRIPTION"
-                        showon="dadata_checkout_enabled:1[AND]dadata_checkout_use_address_field:2">
+                        showon="dadata_checkout_enabled:1[AND]dadata_checkout_use_address_field:1">
                 </field>
 				<field
 						name="dadata_checkout_hide_default"
@@ -84,11 +82,55 @@
 						default="1"
 						label="PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT"
 						description="PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_DESCRIPTION"
-						showon="dadata_checkout_enabled:1[AND]dadata_checkout_use_address_field!:0">
+						showon="dadata_checkout_enabled:1[AND]dadata_checkout_use_address_field:1[AND]dadata_checkout_address_field!:">
                     <option value="1">PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_VALUE_1</option>
                     <option value="2">PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_VALUE_2</option>
                     <option value="0">PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_VALUE_0</option>
 				</field>
+                <field type="spacer" hr="true" />
+                <field
+                        name="dadata_checkout_use_fio"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="PLG_JSHOPPING_DADATA_SUGGESTIONS_CHECKOUT_USE_FIO"
+                        description="PLG_JSHOPPING_DADATA_SUGGESTIONS_CHECKOUT_USE_FIO_DESCRIPTION">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="dadata_checkout_use_fio_field"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_FIO_FIELD"
+                        description="PLG_JSHOPPING_DADATA_SUGGESTIONS_USE_FIO_FIELD_DESCRIPTION"
+                        showon="dadata_checkout_enabled:1[AND]dadata_checkout_use_fio:1">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="dadata_checkout_fio_field"
+                        type="jsfields"
+                        fieldfilter="display:1"
+                        groupfilter="address"
+                        default=""
+                        label="PLG_JSHOPPING_DADATA_SUGGESTIONS_FIO_FIELD"
+                        description="PLG_JSHOPPING_DADATA_SUGGESTIONS_FIO_FIELD_DESCRIPTION"
+                        showon="dadata_checkout_enabled:1[AND]dadata_checkout_use_fio_field:1[AND]dadata_checkout_use_fio:1">
+                </field>
+                <field
+                        name="dadata_checkout_hide_default_fio"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT"
+                        description="PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_DESCRIPTION"
+                        showon="dadata_checkout_enabled:1[AND]dadata_checkout_use_fio_field:1[AND]dadata_checkout_use_fio:1[AND]dadata_checkout_fio_field!:">
+                    <option value="1">PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_VALUE_1</option>
+                    <option value="2">PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_VALUE_2</option>
+                    <option value="0">PLG_JSHOPPING_DADATA_SUGGESTIONS_HIDE_DEFAULT_VALUE_0</option>
+                </field>
             </fieldset>
         </fields>
     </config>
