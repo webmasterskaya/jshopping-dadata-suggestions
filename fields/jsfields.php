@@ -169,10 +169,12 @@ class JFormFieldJsfields extends JFormFieldList
 					{
 						continue;
 					}
+
 					if (substr($name, 0, 2) == "d_")
 					{
-						$name = substr($name, 2, strlen($name) - 2);
+						continue;
 					}
+
 					$options[] = JHtmlSelect::option($name, constant('_JSHOP_FIELD_' . strtoupper($name)));
 				}
 				$options[] = JHtmlSelect::optgroup($groupTitle);
